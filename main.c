@@ -42,7 +42,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    printf("Echo server running on port %d...\n", PORT);
+    // printf("Echo server running on port %d...\n", PORT);
 
     // 4. Accept connection from client
     if ((client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &addr_len)) < 0) {
@@ -51,7 +51,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    printf("Client connected: %s:%d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
+    // printf("Client connected: %s:%d\n", inet_ntoa(client_addr.sin_addr), ntohs(client_addr.sin_port));
 
     // 5. Echo loop: read data and send it straight back
     while ((bytes_received = recv(client_fd, buffer, sizeof(buffer), 0)) > 0) {
@@ -59,7 +59,7 @@ int main() {
     }
 
     if (bytes_received == 0) {
-        printf("Client disconnected.\n");
+        // printf("Client disconnected.\n");
     } else if (bytes_received < 0) {
         perror("Read error");
     }
